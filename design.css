@@ -5,7 +5,10 @@
     margin-bottom: 15px;
   }
   
-  p {
+ 
+  
+  .row {
+    width: 100%;
     border: 1px solid black;
     background-color: #A52A2A;
     width: 90%;
@@ -14,11 +17,6 @@
     margin-left: auto;
     font-family: Helvetica;
     color: white;
-  }
-
-  
-  .row {
-    width: 100%;
   }
   
   /********** Large devices only **********/
