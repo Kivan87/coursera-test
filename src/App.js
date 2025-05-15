@@ -1,59 +1,27 @@
-import "./App.css";
-import { UserProvider, useUser } from "./User.Context";
+import { ChakraProvider } from "@chakra-ui/react";
+import Header from "./components/Header";
+import LandingSection from "./components/LandingSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ContactMeSection from "./components/ContactMeSection";
+import Footer from "./components/Footer";
+import { AlertProvider } from "./context/alertContext";
+import Alert from "./components/Alert";
 
-const LoggedInUser = () => {
-  const {user} = useUser() ;
+function App() {
   return (
-    <p>
-    
-      Hello <span className="Username">{user.name}</span>
-      </p>
-     
+    <ChakraProvider>
+      <AlertProvider>
+        <main>
+          <Header />
+          <LandingSection />
+          <ProjectsSection />
+          <ContactMeSection />
+          <Footer />
+          <Alert />
+        </main>
+      </AlertProvider>
+    </ChakraProvider>
   );
-};
+}
 
-const Header = () => {
-  return (
-    <header>
-      <h2>Blog App</h2>
-      <LoggedInUser/>
-    </header>
-  );
-};
-
-const Page = () => {
-  const {user} = useUser();
-  return (
-    <div>
-      <h2>What is love</h2>
-      <p>
-      Baby dont hurt me , dont hurt me , no more  Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more Baby dont hurt me , dont hurt me , no more
-      </p>
-      <p>
-        Written by {user.name}
-      </p>
-    </div>
-    
-  );
-};
-
-function App (){
-  return (
-    <div className="App">
-    <Header/>
-    <Page/>
-    </div>
-  );
-};
-
-
-function Root (){
-  return (
-  <UserProvider>
-    <App/>
-    </UserProvider>
-  );
-
-};
-
-export default Root;
+export default App;
